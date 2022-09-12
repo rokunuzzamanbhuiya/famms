@@ -6,5 +6,16 @@
     "theme_author": "Shopify",
     "theme_documentation_url": "https://github.com/Shopify/themekit",
     "theme_support_url": "https://github.com/Shopify/themekit/issues"
+  },
+  {
+    "name": "Favicon Setting",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon Image",
+        "info": "32 x 32px recommended"
+      }
+    ]
   }
 ]
