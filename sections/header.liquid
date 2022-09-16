@@ -32,7 +32,7 @@
                     {% endif %}
 
                     {% if link.links != blank %}
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
 
                         <a class="nav-link dropdown-toggle" href="{{ link.url }}" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="true"> <span class="nav-label">{{ link.title }}<span
@@ -40,10 +40,11 @@
 
                         <ul class="dropdown-menu">
 
-                            <li>{% for sublink in link.links %}
+                            {% for sublink in link.links %}
+                            <li>
                                 <a href="{{ sublink.url }}">{{ sublink.title }}</a>
-                                {% endfor %}
                             </li>
+                            {% endfor %}
 
                         </ul>
                     </li>

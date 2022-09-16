@@ -1,0 +1,106 @@
+<!-- slider section -->
+<div class="hero_area">
+  <section class="slider_section ">
+    <div class="slider_bg_box">
+      <img src="{{ section.settings.slide_image | img_url:'master' }}" alt="">
+    </div>
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+
+        {% for block in section.blocks %}
+
+        <div class="carousel-item">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-7 col-lg-6 ">
+                <div class="detail-box">
+                  <h1>
+                    {{ block.settings.heading }}
+                  </h1>
+                  <p>
+                    {{ block.settings.paragraph }}
+                  </p>
+                  <div class="btn-box">
+                    <a href="{{ block.settings.btn_url }}" class="btn1">
+                      {{ block.settings.btn_text }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+
+      <div class="container">
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+{% schema %}
+{
+"name": "Slide Show",
+"settings": [
+{
+"type":"header",
+"content":"Slideshow Section"
+},
+{
+"type":"image_picker",
+"id":"slide_image",
+"label":"Uplaod your slider image"
+}
+],
+"blocks": [
+{
+"type":"image",
+"name":"Slider",
+"settings":[
+
+{
+"type":"textarea",
+"id":"heading",
+"label":"Type your heading"
+},
+{
+"type":"textarea",
+"id":"paragraph",
+"label":"Type your paragraph"
+},
+{
+"type":"text",
+"id":"btn_text",
+"label":"Type your button text"
+},
+{
+"type":"url",
+"id":"btn_url",
+"label":"Insert your url"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Slideshow",
+"blocks": [
+{
+"type": "image"
+}
+
+]
+}
+]
+}
+{% endschema %}

@@ -38,12 +38,14 @@
                <div class="img-box">
                   <img src="{{ product.featured_image | img_url:'large' }}" alt="">
                </div>
-               <div class="detail-box">
+               <div class="detail-box align-items-center justify-content-center">
                   <h5>
-                     {{ product.title }}
+                     {{ product.title | truncate: 23 }}
                   </h5>
+               </div>
+               <div class="detail-box align-items-center justify-content-center">
                   <h6>
-                     ${{ product.price | money }}
+                     {{ product.price | money }}
                   </h6>
                </div>
             </div>
