@@ -1,3 +1,4 @@
+{% comment %}
 {% if cart.item_count > 0 %}
 <h1>cart</h1>
 <form action="/cart" method="post" novalidate>
@@ -44,3 +45,82 @@
 <h2>cart</h2>
 Cart is empty
 {% endif %}
+{% endcomment %}
+
+<section class="inner_page_head">
+  <div class="container_fuild">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <h3>Your Cart</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cart-area section">
+  <div class="cart shopping">
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block">
+            <div class="product-list">
+              <form method="post">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Item Name</th>
+                      <th class="text-center">Quantity</th>
+                      <th>Item Price</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    {% for line_item in cart.items %}
+                    <tr>
+                      <td>
+                        <div class="product-info">
+                          <img width="80" src="{{ line_item.image | product_img_url: '1920x' }}" alt="">
+                          <a href="{{ line_item.url }}">{{ line_item.title }}</a>
+                        </div>
+                      </td>
+                      <td><input type="number" name="updates[]" class="btn btn-default" value="{{ line_item.quantity }}"
+                          min="0" pattern="[0-9]*" /></td>
+                      <td>{{ line_item.line_price | money }}</td>
+                      <td>
+                        <a class="product-remove" href="/cart/change?line={{ forloop.index }}&quantity=0"
+                          rel="{{ line_item.id }}">Remove</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+
+
+                  </tbody>
+                </table>
+                <hr />
+                <div class="row justify-content-end cart-total">
+                  <div class="col-md-3">
+                    <h5>Sub Total</h5>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>{{ cart.total_price | money }}</h5>
+                  </div>
+                </div>
+
+                <div class="my-5">
+                  <input type="submit" name="checkout" class="btn btn-main pull-right ml-4" value="Checkout" />
+
+                  <input type="submit" name="update" class="btn btn-transparent pull-right" id="update-btn"
+                    value="Update" />
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

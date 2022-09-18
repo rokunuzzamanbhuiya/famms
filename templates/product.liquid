@@ -36,14 +36,12 @@
 first %}
 {% assign specifications = product.description | split: "Specifications" | last %}
 
-<script type="text/javascript">
-  window.product = {{ product | json }} || {}
-</script>
+
 
 <section class="single-product">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 mt-5">
+      <div class="col-md-12 mt-5 mb-4">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -137,11 +135,12 @@ first %}
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <h4>Product Description</h4>
+            <h4 class="mt-3">Product Description</h4>
             <p>{{ product_description }}</p>
           </div>
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            {{ specifications }}
+            <h4 class="mt-3">Product Specifications</h4>
+            <p>{{ specifications }}</p>
           </div>
         </div>
       </div>
