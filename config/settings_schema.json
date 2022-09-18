@@ -17,5 +17,14 @@
         "info": "32 x 32px recommended"
       }
     ]
+  },  {
+    "name": "About Image",
+    "settings": [
+      {
+      "type": "image_picker",
+      "id": "about_img",
+      "label": "About Page Image"
+      }
+    ]
   }
 ]

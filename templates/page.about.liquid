@@ -1,0 +1,26 @@
+<section class="inner_page_head">
+    <div class="container_fuild">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <h3>About Us</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about section my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{ settings.about_img | img_url: '1920x' }}">
+            </div>
+            <div class="col-md-6">
+
+                {{ page.content }}
+
+            </div>
+        </div>
+    </div>
+</section>
