@@ -1,0 +1,116 @@
+<section class="client_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                {{ section.settings.heading_text }}
+            </h2>
+        </div>
+
+
+        <div id="carouselExample3Controls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                {% for block in section.blocks %}
+
+
+
+                <div class="carousel-item">
+                    <div class="box col-lg-10 mx-auto">
+                        <div class="img_container">
+                            <div class="img-box">
+                                <div class="img_box-inner">
+                                    <img src="{{ block.settings.slide_image | img_url:'master' }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                {{ block.settings.slide_name }}
+                            </h5>
+                            <h6>
+                                {{ block.settings.role }}
+                            </h6>
+                            <p>
+                                {{ block.settings.paragraph }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+
+
+            </div>
+            <div class="carousel_btn_box">
+                <a class="carousel-control-prev" href="#carouselExample3Controls" role="button" data-slide="prev">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample3Controls" role="button" data-slide="next">
+                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+{% schema %}
+{
+"name": "Testimonial",
+"settings": [
+{
+"type":"header",
+"content":"Testimonial Section"
+},
+{
+"type":"text",
+"id":"heading_text",
+"label":"Write your heading text"
+}
+],
+"blocks": [
+{
+"type":"image",
+"name":"Testimonial Slider",
+"settings":[
+{
+"type":"image_picker",
+"id":"slide_image",
+"label":"Uplaod your client image"
+},
+{
+"type":"text",
+"id":"slide_name",
+"label":"Client Name"
+},
+{
+"type":"text",
+"id":"role",
+"label":"Client role"
+},
+{
+"type":"textarea",
+"id":"paragraph",
+"label":"Type your paragraph"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Testimonial",
+"blocks": [
+{
+"type": "image"
+}
+
+]
+}
+]
+}
+{% endschema %}
